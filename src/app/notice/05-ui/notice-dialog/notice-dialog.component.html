@@ -1,0 +1,42 @@
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCN3Q6zCjywCkPKy_Vl3ZZuf5OrZ76YJkE"
+  async defer></script>
+
+<div style="direction: rtl;">
+  <p-messages></p-messages>
+  <form [formGroup]="fg" *ngIf="fg">
+    <div class="row">
+
+      <div class="p-field ">
+        <h5 for="header">כותרת</h5>
+        <input id="header" formControlName="header" type="text" pInputText placeholder="כותרת" />
+      </div>
+
+      <div class="p-field ">
+        <h5 for="category">קטגוריה</h5>
+        <p-dropdown id="category" [options]="categoryOptions" formControlName="category" placeholder="בחר קטגוריה"
+          (onChange)="onCategoryChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+      </div>
+     
+    </div>
+    <div class="row">
+      <div class="p-field">
+        <h5 for="description">תאור</h5>
+        <textarea rows="5" cols="50" id="description" formControlName="description" pInputTextarea
+          autoResize="autoResize" placeholder="תאור"></textarea>
+
+      </div> 
+      <div class="p-field ">
+        <h5 for="createdBy">נוצר ע"י</h5>
+        <input id="createdBy" formControlName="createdBy" type="text" pInputText placeholder="currentUser" disabled
+          [disabled]="isNew" />
+          
+      </div>
+      <button pButton pRipple type="button" label="שמור" (click)="onSubmit()"></button>
+    </div>
+  </form>
+
+  <!-- <div class="p-field">
+        <p-gmap [options]="options" [style]="{'width':'100%','height':'320px'}" ></p-gmap>
+    </div> -->
+
+</div>
